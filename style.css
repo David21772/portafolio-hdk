@@ -1,0 +1,269 @@
+/* Este repositório base fué creado para ayudarte en caso que no sepas como comenzar, recuerda que el portafolio es tu carta de presentación y debes darle tu cara, por eso te invitamos a personalizarlo según tu estilo y preferencias no te limites apenas al layout propuesto en figma  
+*/
+:root {
+    --color-de-fondo: #F5F5F5;
+    --color-de-fondo-menu: #d30e0e;
+    --color-de-link: #000000;
+}
+
+body {
+    background-color: var(--color-de-fondo);
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 28px;
+}
+
+/* Contenedor de la imagen y el rayo */
+.container {
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%; /* Se ajusta al ancho completo del contenedor */
+    height: 380px; /* Ajusta según sea necesario */
+    position: relative; /* Permite posicionar la imagen si es necesario */
+    background-color: #fff; /* Opcional: Fondo blanco */
+}
+  
+  /* Estilo para la imagen principal */
+  .image {
+    width: 15%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 50%; /* Hace que los bordes sean circulares */
+    object-fit: cover; /* Asegura que la imagen se ajuste correctamente al contenedor */
+    border: 3px solid #fff; /* Opcional: Añade un borde blanco */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: Añade sombra para un efecto 3D */
+    animation: fadeIn 3s ease-out forwards 3s; /* Aparece después de 3s */
+    position: relative; /* Se queda dentro del contenedor */
+    opacity: 0; /* Asegura que sea visible */
+}
+
+  
+  
+  /* Animación de la imagen principal */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  /* Contenedor para la firma */
+.firma-container {
+    text-align: left; /* Centra el contenido horizontalmente */
+    margin-top: 20px; /* Añade espacio hacia arriba */
+}
+
+button {
+    background-color: #007BFF; /* Color del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    font-size: 16px; /* Tamaño del texto */
+    transition: background-color 0.3s ease; /* Efecto al pasar el mouse */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
+
+/* Imagen de la firma */
+#signatureImage {
+    display: none; /* Oculta la imagen inicialmente */
+    transition: opacity 0.5s ease; /* Animación suave al aparecer */
+}
+
+
+.contenedor2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #d3d3d3;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: fit-content;  /* Ajuste automático al contenido */
+    max-height: fit-content;
+    border: 1px solid #444;
+}
+
+/* Estilo de la imagen */
+.imagen-codigo {
+    max-width: 600px;
+    height: 500px;
+    margin-bottom: 40px;
+}
+
+/* Estilo de los botones */
+.botones2 {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-repositorio, .btn-demo {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-repositorio {
+    background-color: blue;
+    color: white;
+}
+
+.btn-demo {
+    background-color: royalblue;
+    color: white;
+}
+
+.btn-repositorio:hover {
+    background-color: darkblue;
+}
+
+.btn-demo:hover {
+    background-color: navy;
+}
+
+
+
+ol, ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-de-link);
+}
+
+/* ------------------------------ Sección Menú -------------------------------*/
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-de-fondo-menu);
+}
+
+.cabecera__logo {
+    max-width: 80px; /* Ajuste para pantallas pequeñas */
+}
+
+.cabecera__titulo {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.navegacion__lista {
+    display: none;
+}
+
+.navegacion__elemento a {
+    font-size: 0.9rem;
+}
+/* ------------------------------ Sección Presentación ------------------------------*/
+
+
+/* ------------------------------ Sección sobre mí ----------------------------------*/
+
+
+/*------------------------------ Sección de Habilidades ------------------------------*/
+
+
+/*------------------------------ Sección de Aficiones --------------------------------*/
+.aficiones {
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin: 20px auto; /* Añade espacio hacia arriba y centra */
+    padding: 20px; /* Añade espacio interno */
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.aficiones__titulo {
+    font-size: 24px; /* Aumenta el tamaño del título */
+    margin-bottom: 20px; /* Añade espacio debajo del título */
+}
+
+.aficiones__lista {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el espacio interno */
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+}
+
+.aficiones__elemento {
+    margin: 10px; /* Añade espacio alrededor de cada elemento */
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.aficiones__icono {
+    width: 50px; /* Ajusta el tamaño del icono */
+    height: 50px; /* Ajusta el tamaño del icono */
+    margin-bottom: 10px; /* Añade espacio debajo del icono */
+}
+
+.aficiones__nombre {
+    font-size: 18px; /* Aumenta el tamaño del nombre */
+    margin: 0; /* Elimina el espacio interno */
+}
+
+/*------------------------------ Sección de Proyectos --------------------------------*/
+
+
+/*------------------------------ Sección de Contacto ---------------------------------*/
+
+
+/* ------------------------------ Responsividad ---------------------------------------*/
+
+/* Tablets y pantallas más grandes */
+@media (min-width: 768px) {
+    .cabecera {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cabecera__logo {
+        max-width: 100px;
+    }
+
+    .cabecera__titulo {
+        font-size: 1.5rem;
+    }
+
+    .navegacion__lista {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 0;
+    }
+
+    .navegacion__elemento a {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1024px) {
+    /* Aquí puedes ajustar aún más el diseño para pantallas grandes */
+    .cabecera__titulo {
+        font-size: 1.8rem;
+    }
+
+    .navegacion__elemento a {
+        font-size: 1.1rem;
+    }
+}
