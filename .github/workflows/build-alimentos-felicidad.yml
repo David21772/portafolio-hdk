@@ -1,0 +1,63 @@
+name: Build Alimentos Felicidad Presentation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'presentations/alimentos-felicidad/**'
+      - '.github/workflows/build-alimentos-felicidad.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-presentation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install LibreOffice
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libreoffice
+    
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r presentations/alimentos-felicidad/requirements.txt
+    
+    - name: Generate presentation
+      run: |
+        python presentations/alimentos-felicidad/generate_presentation.py \
+          --author "David21772" \
+          --output "presentations/alimentos-felicidad/alimentos-felicidad.pptx" \
+          --export-pdf
+    
+    - name: Upload presentation artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: alimentos-felicidad-presentation
+        path: |
+          presentations/alimentos-felicidad/alimentos-felicidad.pptx
+          presentations/alimentos-felicidad/alimentos-felicidad.pdf
+    
+    - name: Commit generated files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add presentations/alimentos-felicidad/alimentos-felicidad.pptx presentations/alimentos-felicidad/alimentos-felicidad.pdf
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-generate presentation: alimentos-felicidad.pptx and .pdf"
+          git push
+        fi
